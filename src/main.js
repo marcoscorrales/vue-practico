@@ -1,9 +1,7 @@
-import { createApp } from 'vue'
+import '@/styles/main.scss'
 import App from './App.vue'
+import { createApp } from 'vue'
+import {router} from './router.js'
 
-createApp(App).mount('#app')
+createApp(App).use(router).mount("#app");
 
-// new Vue({
-//     el: '#app',
-//     render: h => h(App)
-// })
