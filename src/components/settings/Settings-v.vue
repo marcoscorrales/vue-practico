@@ -1,6 +1,7 @@
+
 <template>
   <div>
-    {{ settings }}
+    {{ Settings-v }}
   </div>
 </template>
 
