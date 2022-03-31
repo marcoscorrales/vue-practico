@@ -1,27 +1,26 @@
 
 <template>
   <div>
-    {{ Settings-v }}
+     <div v-for=" respuesta in respuestas" :key="respuesta.id">
+            <li>{{respuesta}}</li>
+        </div>
   </div>
 </template>
 
 <script>
-import { mapActions } from 'vuex'
 export default {
-  data () {
-    return {
-      settings: null,
+  data(){
+    return{
+      respuestas : []
     }
   },
-  created () {
-    this.fetchModulePermissions().then((response) => {
-      this.settings = response
-    })
-  },
-  methods: {
-    ...mapActions([
-      'fetchModulePermissions',
-    ]),
-  },
+  mounted(){
+    fetch('https://jsonplaceholder.typicode.com/posts')
+    .then(res => res.json())
+    .then(data => this.respuestas = data)
+    .then(data => console.log(data))
+    
+    .catch(err => console.log(err.message))
+  }
 }
 </script>
